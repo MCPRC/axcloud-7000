@@ -1,0 +1,38 @@
+.ax-landing,.ax-account{
+  --brand:#F2413B;
+  --brand-hover:#DF332E;
+  --brand-ink:#BA2C27;
+  --brand-soft:#FFF0EE;
+  --brand-wash:#FBE9E7;
+  --brand-line:#F4C4BE;
+  --canvas:#FEFEFE;
+  --surface:#fff;
+  --pale:#F5F9FC;
+  --hero-peach:#FFE8D8;
+  --ink:#202124;
+  --muted:#555B63;
+  --subtle:#858B94;
+  --line:#E8EBEF;
+}
+
+.coral-brand{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  flex-shrink:0;
+  white-space:nowrap;
+  color:var(--brand);
+  text-decoration:none
+}
+.coral-brand-symbol{width:35px;height:35px;flex:none}
+.coral-brand-wordmark{display:block;line-height:1.2}
+.coral-brand-wordmark>strong{display:block;color:var(--ink);font-size:22px;font-weight:700;letter-spacing:.025em}
+.coral-brand-wordmark>small{display:block;margin-top:4px;color:var(--muted);font-size:9px;letter-spacing:.08em}
+@media(max-width:600px){
+  .coral-brand-symbol{width:31px;height:31px}
+  .coral-brand-wordmark>strong{font-size:20px}
+  .coral-brand-wordmark>small{font-size:8px}
+}
+.coral-brand-compact .coral-brand-symbol{width:30px;height:30px}
+.coral-brand-compact .coral-brand-wordmark>strong{font-size:17px}
+.coral-brand-compact .coral-brand-wordmark>small{margin-top:2px}
