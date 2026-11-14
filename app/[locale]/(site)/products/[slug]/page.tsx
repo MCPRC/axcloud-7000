@@ -48,9 +48,9 @@ export default async function ProductPage({ params }: { params: Promise<{ locale
 
   return (
     <>
-      <section className="bg-ice border-b border-line">
+      <section className="site-theme-hero border-b border-line">
         <div className="shell pt-8 pb-16 lg:pb-20">
-          <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-[13px] text-muted">
+          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-[13px] text-muted">
             <Link href="/products" className="hover:text-cobalt">{t("breadcrumb")}</Link>
             <ChevronRight size={13} aria-hidden="true" />
             <Link href="/products" className="hover:text-cobalt">{pick(cat.name, locale)}</Link>
@@ -87,7 +87,7 @@ export default async function ProductPage({ params }: { params: Promise<{ locale
         </div>
       </section>
 
-      <nav aria-label={t("overview")} className="sticky top-16 z-30 bg-white/95 backdrop-blur border-b border-line">
+      <nav aria-label={t("overview")} className="sticky top-16 z-30 site-theme-header border-b border-line">
         <ul className="shell flex gap-6 overflow-x-auto h-12 items-stretch text-sm" role="list">
           {sections.map(s => (
             <li key={s.id} className="flex">
@@ -187,7 +187,7 @@ export default async function ProductPage({ params }: { params: Promise<{ locale
           <ul className="mt-8 grid md:grid-cols-2 gap-4" role="list">
             {scenes.map(s => (
               <li key={s.id}>
-                <Link href={`/?solution=${s.id}#solutions`} className="block h-full rounded-[10px] border border-line p-6 hover:border-cobalt">
+                <Link href={locale === "zh" ? `/?solution=${s.id}` : `/?solution=${s.id}#solutions`} className="block h-full rounded-[10px] border border-line p-6 hover:border-cobalt">
                   <span className="text-[13px] text-cobalt font-semibold">{pick(s.name, locale)}</span>
                   <span className="block mt-2 text-lg font-semibold">{pick(s.title, locale)}</span>
                   <span className="block mt-2 text-sm text-muted leading-relaxed">{pick(s.desc, locale)}</span>

@@ -31,7 +31,7 @@ function arcsFor(selId: string) {
   // 骨干网：上海到各海外地域的淡色连线 + 当前地域高亮
   const base = regions
     .filter(r => r.area !== "cn" && r.id !== selId)
-    .map(r => ({ from: origin.loc, to: r.loc, color: [0.32, 0.4, 0.75] as [number, number, number] }));
+    .map(r => ({ from: origin.loc, to: r.loc, color: [0.76, 0.43, 0.38] as [number, number, number] }));
   return selId === origin.id ? base : [...base, { from: origin.loc, to: regions.find(r => r.id === selId)!.loc, color: [1, 0.45, 0.2] as [number, number, number] }];
 }
 
@@ -67,12 +67,12 @@ export default function Infra() {
       mapSamples: 40000,
       mapBrightness: 8,
       mapBaseBrightness: 0,
-      baseColor: [0.1, 0.15, 0.36],
-      markerColor: [0.5, 0.62, 1],
-      glowColor: [0.1, 0.17, 0.45],
+      baseColor: [0.25, 0.19, 0.2],
+      markerColor: [0.96, 0.45, 0.38],
+      glowColor: [0.34, 0.17, 0.16],
       markers: markersFor(origin.id),
       arcs: arcsFor(origin.id),
-      arcColor: [0.55, 0.66, 1],
+      arcColor: [0.95, 0.48, 0.4],
       arcWidth: 0.5,
       arcHeight: 0.28,
       markerElevation: 0,
@@ -214,7 +214,7 @@ export default function Infra() {
                   <span className="globe-ring" style={{ animationDelay: "0.9s" }} />
                 </>
               )}
-              <span className="absolute -left-[3px] -top-[3px] h-[6px] w-[6px] rounded-full bg-[#ff6124] ring-2 ring-white/80" />
+              <span className="absolute -left-[3px] -top-[3px] h-[6px] w-[6px] rounded-full bg-promo ring-2 ring-white/80" />
               <span className="globe-leader" />
               <AnimatePresence mode="wait" initial={false}>
                 <motion.span

@@ -1,23 +1,7 @@
 .ax-account {
-  --color-cobalt: var(--brand-ink);
-  --color-cobalt-deep: #9e2520;
-  --color-ice: var(--brand-soft);
-  --color-mist: var(--pale);
-  --color-line: var(--line);
-  --color-ink: var(--ink);
-  --color-muted: var(--muted);
-  --color-faint: #68707a;
-  --color-night: #29323b;
-  --color-promo: var(--brand-hover);
-  --logo-mark: var(--brand);
   color: var(--ink);
   accent-color: var(--brand-ink);
 }
-.ax-account ::selection { background: var(--brand-wash); color: var(--ink); }
-.ax-account .btn-primary { background: var(--brand-hover); }
-.ax-account .btn-primary:hover { background: var(--brand-ink); }
-.ax-account .btn-ghost { background: white; border-color: var(--brand); color: var(--brand-ink); }
-.ax-account .btn-ghost:hover { background: var(--brand-soft); }
 .account-login { background: var(--pale); }
 .account-login-aside {
   isolation: isolate;

@@ -8,7 +8,7 @@ export default function FloatingCloud() {
   return (
     <div className="relative hidden md:block w-[440px] -mr-6 select-none pointer-events-none" aria-hidden="true">
       <motion.img
-        src="/hero-cloud.webp"
+        src="/anxinyun/images/hero-game-shield.webp"
         alt=""
         width={1536}
         height={1024}

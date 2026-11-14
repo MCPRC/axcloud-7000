@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-night: #0a1a44;
-  --color-night-2: #142a66;
-  --color-night-line: #24397a;
-  --color-cobalt: #2f4bff;
-  --color-cobalt-deep: #1f35d6;
-  --color-ice: #eef2ff;
-  --color-mist: #f6f8fc;
-  --color-line: #dde3f0;
-  --color-ink: #17203a;
-  --color-muted: #5b6478;
-  --color-faint: #8a93a8;
+  --color-night: #29323b;
+  --color-night-2: #3d4650;
+  --color-night-line: #49535d;
+  --color-cobalt: var(--brand-ink);
+  --color-cobalt-deep: #9e2520;
+  --color-ice: var(--brand-soft);
+  --color-mist: var(--pale);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: #68707a;
   --color-signal: #12b886;
-  --color-promo: #ff5a1f;
+  --color-promo: var(--brand-hover);
 
   --font-sans: var(--font-archivo), "PingFang SC", "HarmonyOS Sans SC", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
@@ -73,7 +73,7 @@
     cursor: pointer;
   }
   ::selection {
-    background: #c9d3ff;
+    background: var(--brand-wash);
   }
 }
 
@@ -150,20 +150,14 @@
     background-size: 100% 1px;
   }
   .btn-ghost {
-    border: 1px solid var(--color-line);
-    color: var(--color-ink);
-    background: #fff;
+    border: 1px solid var(--brand);
+    color: var(--brand-ink);
+    background: var(--surface);
   }
   .btn-ghost:hover {
     border-color: var(--color-cobalt);
     color: var(--color-cobalt);
-  }
-  .btn-on-dark {
-    border: 1px solid rgb(255 255 255 / 0.28);
-    color: #fff;
-  }
-  .btn-on-dark:hover {
-    background: rgb(255 255 255 / 0.08);
+    background: var(--brand-soft);
   }
   .tag {
     display: inline-flex;
@@ -221,7 +215,7 @@
     background: #fff;
     color: var(--color-ink);
     font-weight: 600;
-    box-shadow: 0 1px 2px rgb(10 26 68 / 0.12);
+    box-shadow: 0 1px 2px rgb(32 33 36 / 0.12);
   }
 }
 
@@ -251,7 +245,7 @@
   width: 28px;
   height: 28px;
   border-radius: 999px;
-  border: 1.5px solid #ff6124;
+  border: 1.5px solid var(--brand);
   animation: globe-ring 1.8s ease-out infinite;
 }
 @keyframes globe-ring {

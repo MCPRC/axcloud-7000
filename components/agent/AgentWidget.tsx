@@ -6,12 +6,12 @@ import { ArrowUp, Headset, MessageSquarePlus, X } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Link } from "@/i18n/navigation";
 import { AGENT_EVENT } from "@/lib/agent-bus";
-import { Mark } from "@/components/site/Logo";
+import { CoralMark } from "@/components/site/CoralBrand";
 
 type Msg = { role: "user" | "assistant"; content: string; kind?: "human" };
 const STORE = "ax-agent-chat";
 
-export default function AgentWidget() {
+export default function AgentWidget({ suggestions }: { suggestions?: string[] }) {
   const t = useTranslations("agent");
   const locale = useLocale();
   const [open, setOpen] = useState(false);
@@ -113,7 +113,7 @@ export default function AgentWidget() {
     setMsgs(m => [...m, { role: "user", content: t("human"), kind: "human" }, { role: "assistant", content: t("humanReply"), kind: "human" }]);
   }
 
-  const suggestions = t.raw("suggestions") as string[];
+  const prompts = suggestions ?? (t.raw("suggestions") as string[]);
 
   return (
     <>
@@ -128,7 +128,7 @@ export default function AgentWidget() {
         aria-expanded={open}
         aria-controls="ax-agent"
         aria-label={t("launcher")}
-        className={`fixed z-[60] right-4 bottom-4 sm:right-6 sm:bottom-6 flex items-center gap-2.5 h-12 pl-2 pr-5 rounded-full bg-night text-white ring-1 ring-white/20 shadow-[0_16px_32px_-12px_rgb(10_26_68/0.6)] hover:bg-night-2 transition-[opacity,transform] ${
+        className={`fixed z-[60] right-4 bottom-4 sm:right-6 sm:bottom-6 flex items-center gap-2.5 h-12 pl-2 pr-5 rounded-full bg-night text-white ring-1 ring-white/20 shadow-[0_16px_32px_-12px_rgb(32_33_36/0.6)] hover:bg-night-2 transition-[opacity,transform] ${
           open ? "max-sm:opacity-0 max-sm:pointer-events-none" : ""
         }`}
       >
@@ -159,10 +159,10 @@ export default function AgentWidget() {
           role="dialog"
           aria-modal="false"
           aria-labelledby="ax-agent-title"
-          className="fixed z-[70] inset-0 sm:inset-auto sm:right-6 sm:bottom-[88px] sm:w-[400px] sm:h-[min(640px,calc(100vh-120px))] flex flex-col bg-white sm:rounded-[16px] border border-line shadow-[0_32px_64px_-24px_rgb(10_26_68/0.45)] overflow-hidden"
+          className="fixed z-[70] inset-0 sm:inset-auto sm:right-6 sm:bottom-[88px] sm:w-[400px] sm:h-[min(640px,calc(100vh-120px))] flex flex-col bg-white sm:rounded-[16px] border border-line shadow-[0_32px_64px_-24px_rgb(32_33_36/0.45)] overflow-hidden"
         >
           <header className="flex items-center gap-3 px-4 h-16 bg-night text-white shrink-0">
-            <Mark size={32} />
+            <CoralMark />
             <div className="leading-tight min-w-0">
               <h2 id="ax-agent-title" className="font-semibold text-[15px]">{t("title")}</h2>
               <p className="text-[12px] text-white/60 truncate">{t("subtitle")}</p>
@@ -182,7 +182,7 @@ export default function AgentWidget() {
             <Bubble role="assistant">{t("greeting")}</Bubble>
             {msgs.length === 0 && (
               <ul className="flex flex-col items-start gap-2 pl-1" role="list">
-                {suggestions.map((s, i) => (
+                {prompts.map((s, i) => (
                   <motion.li key={s} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 + i * 0.06, duration: 0.3 }}>
                     <button type="button" onClick={() => send(s)} className="text-left text-[13px] px-3 py-2 rounded-[10px] border border-cobalt/25 bg-white text-cobalt hover:border-cobalt">
                       {s}

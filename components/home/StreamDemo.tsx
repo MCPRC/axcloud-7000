@@ -91,7 +91,7 @@ export default function StreamDemo() {
         <AnimatePresence mode="wait">
           <motion.div key={`${locale}-${idx}`} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.3 }}>
             <p className="text-white/50">
-              <span className="text-[#8fa3ff] font-mono mr-2">user</span>
+              <span className="text-[#ffad9b] font-mono mr-2">user</span>
               {sample.q}
             </p>
             <div className="mt-3 flex">

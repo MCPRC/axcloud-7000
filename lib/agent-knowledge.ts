@@ -4,6 +4,21 @@ export function offlineAnswer(question: string, locale: string): string {
   const en = locale === "en";
   const has = (...k: string[]) => k.some(x => q.includes(x));
 
+  if (has("游戏盾", "game shield")) {
+    return en
+      ? "Game Shield is for game login, gateways and long-lived connections. Prepare your transport protocols, public ports, normal traffic and previous attack peaks. The actual mitigation capacity and connection requirements depend on the confirmed plan."
+      : "高防游戏盾面向游戏登录、网关和长连接场景。选型前请整理业务协议、开放端口、正常流量和历史攻击峰值。实际防护容量与接入条件以方案确认为准。";
+  }
+  if (has("高防", "ddos")) {
+    if (has("地域", "线路", "region", "routing")) {
+      return en
+        ? "Start with where your users are and which carriers they use. Compare the route back to your origin and measure latency on the candidate routes. Confirm availability and mitigation capacity separately."
+        : "先看主要用户所在地域和运营商，再比较接入线路的访问时延和回源路径。实际节点、线路与防护容量以方案确认为准。";
+    }
+    return en
+      ? "For DDoS protection planning, collect your public entry points, protocols, ports, normal traffic and any recorded attack peaks and durations. These help assess how to connect your service and how much mitigation capacity you need."
+      : "选国内高防前，建议整理业务入口、协议与开放端口、正常带宽峰值，以及历史攻击的峰值和持续时间，用于评估接入方式和防护容量。";
+  }
   if (has("官网", "网站", "建站", "website", "site", "博客", "blog")) {
     return en
       ? "For a company website, start with a [Lightweight Server](/products/lighthouse) (from ¥24/mo) or a 2 vCPU / 4 GB [ECS](/products/ecs) instance at ¥68/mo. Add an [SSL certificate](/products/ssl) for HTTPS, and if you serve users in mainland China, complete [ICP filing](/products/icp) first."

@@ -73,7 +73,7 @@ export default function Catalog({ headless = false, initial = "featured" }: { he
                         <motion.span
                           layoutId={`rail-${headless ? "page" : "home"}`}
                           aria-hidden="true"
-                          className="absolute inset-0 rounded-[6px] bg-white shadow-[0_1px_2px_rgb(10_26_68/0.08)]"
+                          className="absolute inset-0 rounded-[6px] bg-white shadow-[0_1px_2px_rgb(32_33_36/0.08)]"
                           transition={{ type: "spring", stiffness: 420, damping: 36 }}
                         >
                           <span className="hidden lg:block absolute -left-3 top-2 bottom-2 w-[3px] rounded-full bg-cobalt" />

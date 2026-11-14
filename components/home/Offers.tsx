@@ -12,7 +12,7 @@ export default function Offers() {
 
   return (
     <div className="shell relative z-10 -mt-24 lg:-mt-28">
-      <ul className="grid sm:grid-cols-2 lg:grid-cols-4 bg-white rounded-[10px] border border-line shadow-[0_24px_48px_-28px_rgb(10_26_68/0.35)] overflow-hidden" role="list">
+      <ul className="grid sm:grid-cols-2 lg:grid-cols-4 bg-white rounded-[10px] border border-line shadow-[0_24px_48px_-28px_rgb(32_33_36/0.35)] overflow-hidden" role="list">
         {items.map((it, i) => {
           const Icon = icons[i];
           return (

@@ -8,7 +8,7 @@ import { Link, usePathname } from "@/i18n/navigation";
 import { categories, featuredSlugs, products, productBySlug, type CategoryId } from "@/lib/catalog";
 import { solutions } from "@/lib/solutions";
 import { pick } from "@/lib/site";
-import Logo from "./Logo";
+import CoralBrand from "./CoralBrand";
 import LangSwitch from "./LangSwitch";
 
 type MenuId = "products" | "solutions" | null;
@@ -100,9 +100,9 @@ export default function Header() {
           </div>
         </div>
       )}
-      <header ref={headerRef} className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-line">
+      <header ref={headerRef} className="site-theme-header sticky top-0 z-50 border-b border-line">
         <div className="shell flex items-center h-16 gap-8">
-          <Logo />
+          <CoralBrand href={`/${locale}`} subtitle={locale === "en" ? "DDoS protection" : undefined} />
           <nav aria-label="主导航" className="hidden lg:flex items-stretch h-full">
             {(["products", "solutions"] as const).map(id => (
               <div key={id} className="relative flex" onMouseEnter={() => hoverOpen(id)} onMouseLeave={hoverClose}>
@@ -167,7 +167,7 @@ export default function Header() {
             exit={{ opacity: 0, y: -6, transition: { duration: 0.15 } }}
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
             id="menu-products"
-            className="absolute inset-x-0 top-full bg-white border-b border-line shadow-[0_24px_48px_-24px_rgb(10_26_68/0.25)]"
+            className="absolute inset-x-0 top-full bg-white border-b border-line shadow-[0_24px_48px_-24px_rgb(32_33_36/0.25)]"
             onMouseEnter={() => hoverOpen("products")}
             onMouseLeave={hoverClose}
           >
@@ -240,14 +240,14 @@ export default function Header() {
             exit={{ opacity: 0, y: -6, transition: { duration: 0.15 } }}
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
             id="menu-solutions"
-            className="absolute inset-x-0 top-full bg-white border-b border-line shadow-[0_24px_48px_-24px_rgb(10_26_68/0.25)]"
+            className="absolute inset-x-0 top-full bg-white border-b border-line shadow-[0_24px_48px_-24px_rgb(32_33_36/0.25)]"
             onMouseEnter={() => hoverOpen("solutions")}
             onMouseLeave={hoverClose}
           >
             <ul className="shell grid grid-cols-4 gap-x-8 gap-y-2 py-8" role="list">
               {solutions.map(s => (
                 <li key={s.id}>
-                  <Link href={`/?solution=${s.id}#solutions`} className="group block rounded-[6px] p-3 -m-3 hover:bg-mist">
+                  <Link href={locale === "zh" ? `/?solution=${s.id}` : `/?solution=${s.id}#solutions`} className="group block rounded-[6px] p-3 -m-3 hover:bg-mist">
                     <span className="block text-[15px] font-medium group-hover:text-cobalt">{pick(s.name, locale)}</span>
                     <span className="block text-[13px] text-muted leading-snug mt-1 line-clamp-2">{pick(s.title, locale)}</span>
                   </Link>

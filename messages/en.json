@@ -220,12 +220,12 @@
       "What GPU sizes are there?"
     ],
     "human": "Talk to a person",
-    "humanReply": "Handoff requested. On weekdays 9:00–21:00 an agent joins within 3 minutes, or call 400-820-0000.",
+    "humanReply": "For human assistance, please use the contact details on our website.",
     "error": "The answer didn't come through. Please send it again.",
     "close": "Close chat",
     "clear": "New chat",
     "offline": "Showing an answer from the built-in knowledge base.",
-    "disclaimer": "AI-generated. Check prices on the order page."
+    "disclaimer": "Built-in knowledge base answers. Service details depend on your confirmed plan."
   },
   "product": {
     "overview": "Overview",

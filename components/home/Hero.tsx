@@ -72,7 +72,7 @@ export default function Hero() {
   const lines = t("title").split("\n");
 
   return (
-    <section className="relative bg-night text-white overflow-hidden" aria-labelledby="hero-title">
+    <section className="relative site-theme-hero text-ink overflow-hidden" aria-labelledby="hero-title">
       <HeroBackdrop />
       <motion.div
         aria-hidden="true"
@@ -98,7 +98,7 @@ export default function Hero() {
             ))}
           </h1>
           <motion.p
-            className="mt-6 max-w-[34em] text-lg text-white/70 leading-relaxed"
+            className="mt-6 max-w-[34em] text-lg text-muted leading-relaxed"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease }}
@@ -112,13 +112,13 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.62, ease }}
           >
             <Link href="/login?mode=signup" className="btn btn-primary btn-shine h-12 px-7 text-[15px]">{t("primary")}</Link>
-            <Link href="/products" className="btn btn-on-dark h-12 px-7 text-[15px]">{t("secondary")}</Link>
+            <Link href="/products" className="btn btn-ghost h-12 px-7 text-[15px]">{t("secondary")}</Link>
           </motion.div>
         </div>
 
         {/* 开通演示面板 */}
         <motion.div
-          className="relative rounded-[16px] bg-white text-ink shadow-[0_40px_80px_-30px_rgb(0_0_0/0.55)]"
+          className="relative rounded-[16px] bg-white text-ink border border-line shadow-[0_16px_38px_-20px_rgb(32_33_36/0.2)]"
           role="group"
           aria-labelledby="panel-title"
           initial={{ opacity: 0, y: 40, rotateX: 8 }}
@@ -132,7 +132,7 @@ export default function Hero() {
               {(["month", "hour"] as const).map(b => (
                 <button key={b} type="button" aria-pressed={billing === b} onClick={() => setBilling(b)} className="relative !bg-transparent !shadow-none">
                   {billing === b && (
-                    <motion.span layoutId="hero-billing" className="absolute inset-0 rounded-[4px] bg-white shadow-[0_1px_2px_rgb(10_26_68/0.12)]" transition={{ type: "spring", stiffness: 500, damping: 38 }} />
+                    <motion.span layoutId="hero-billing" className="absolute inset-0 rounded-[4px] bg-white shadow-[0_1px_2px_rgb(32_33_36/0.12)]" transition={{ type: "spring", stiffness: 500, damping: 38 }} />
                   )}
                   <span className="relative">{b === "month" ? t("monthly") : t("hourly")}</span>
                 </button>

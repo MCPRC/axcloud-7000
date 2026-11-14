@@ -60,15 +60,15 @@ export default function HeroBackdrop() {
         const head = p.y;
         const tail = p.up ? p.y + p.len : p.y - p.len;
         const g = ctx.createLinearGradient(0, tail, 0, head);
-        g.addColorStop(0, "rgba(120,145,255,0)");
-        g.addColorStop(1, `rgba(170,190,255,${p.alpha})`);
+        g.addColorStop(0, "rgba(242,65,59,0)");
+        g.addColorStop(1, `rgba(242,65,59,${p.alpha})`);
         ctx.strokeStyle = g;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(p.x, tail);
         ctx.lineTo(p.x, head);
         ctx.stroke();
-        ctx.fillStyle = `rgba(210,220,255,${p.alpha})`;
+        ctx.fillStyle = `rgba(255,153,122,${p.alpha})`;
         ctx.fillRect(p.x - 1, head - 1, 2, 2);
       }
       packets = packets.map(p => ((p.up ? p.y < -p.len - 20 : p.y > height + p.len + 20) ? spawn() : p));

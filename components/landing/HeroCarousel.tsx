@@ -91,7 +91,7 @@ export default function HeroCarousel({ onGameShield }: { onGameShield: () => voi
   return (
     <section
       ref={heroRef}
-      className="hero"
+      className="hero site-theme-hero"
       id="top"
       aria-labelledby="hero-title"
       aria-roledescription="轮播图"

@@ -14,13 +14,13 @@ export default async function ProductsPage({ params }: { params: Promise<{ local
   const t = await getTranslations("catalog");
   return (
     <>
-      <section className="bg-night text-white">
+      <section className="site-theme-hero text-ink border-b border-line">
         <div className="shell py-16 lg:py-20">
           <h1 className="text-[36px] sm:text-[48px] font-semibold">{t("title")}</h1>
-          <p className="mt-4 text-lg text-white/65 max-w-[36em]">
+          <p className="mt-4 text-lg text-muted max-w-[36em]">
             {locale === "en"
-              ? `${categories.length} categories and ${products.length} products, from your first website to production AI.`
-              : `${categories.length} 大类、${products.length} 款产品，覆盖从建站到大模型应用的每一步。`}
+              ? `${categories.length} categories and ${products.length} products, to compare when planning deployment and protection.`
+              : `${categories.length} 大类、${products.length} 款产品，用于比较部署配置、业务接入与防护需求。`}
           </p>
         </div>
       </section>

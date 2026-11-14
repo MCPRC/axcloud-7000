@@ -18,6 +18,7 @@ const productItems: NavEntry[] = [
   { title: "弹性云服务器 | ECS", description: "按需组合计算、存储与网络资源", action: "product:cloud" },
   { title: "高频云服务器 | HCS", description: "为高频计算与实时业务选择配置", action: "product:hcs" },
   { title: "裸金属服务器 | BMS", description: "独享物理资源，构建专属环境", action: "product:metal" },
+  { title: "全部产品", description: "浏览完整产品目录与部署配置", action: "catalog" },
   { title: "安全证书 | SSL", description: "了解域名与组织验证证书", action: "product:ssl" },
 ];
 const solutions = [
@@ -90,6 +91,15 @@ export default function Landing() {
     scroll(); window.addEventListener("scroll", scroll, { passive: true }); document.addEventListener("pointerdown", outside); document.addEventListener("keydown", escape);
     return () => { window.removeEventListener("scroll", scroll); document.removeEventListener("pointerdown", outside); document.removeEventListener("keydown", escape); };
   }, [navOpen, mobileOpen]);
+  useEffect(() => {
+    const requested = new URLSearchParams(window.location.search).get("solution");
+    const scenario = requested === "gaming" ? 2 : requested === "retail" ? 1
+      : requested && ["internet", "ai-app", "finance", "manufacturing", "media"].includes(requested) ? 0 : null;
+    if (scenario !== null) {
+      setSolution(scenario);
+      setInfo({ kind: "solutions", title: "DDoS 防护场景" });
+    }
+  }, []);
   useEffect(() => { if (mobileOpen) headerRef.current?.querySelector<HTMLAnchorElement>(".main-nav a")?.focus(); }, [mobileOpen]);
   useEffect(() => { if (info && !infoRef.current?.open) infoRef.current?.showModal(); else if (!info && infoRef.current?.open) infoRef.current.close(); }, [info]);
 
@@ -107,6 +117,7 @@ export default function Landing() {
       router.push(action === "console" ? "/console" : action === "signup" ? "/login?mode=signup" : "/login");
       return;
     }
+    if (action === "catalog") { router.push("/products"); return; }
     if (action.startsWith("product:")) { setCategory(action.split(":")[1] as CategoryId); setInfo(null); jump("products"); return; }
     if (action.startsWith("solution:")) { openSolution(Number(action.split(":")[1])); return; }
     if (["network", "announcements", "assurances", "products"].includes(action)) { setInfo(null); jump(action); return; }
@@ -129,7 +140,7 @@ export default function Landing() {
 
   return <div className="ax-landing">
     <a className="skip-link" href="#main">跳转到主要内容</a>
-    <header className="site-header" ref={headerRef}>
+    <header className="site-header site-theme-header" ref={headerRef}>
       <div className="header-inner"><CoralBrand />
         <nav className={`main-nav ${mobileOpen ? "is-open" : ""}`} aria-label="主导航">
           <a className="activity-link" href="#announcements" onClick={() => { setNavOpen(null); setMobileOpen(false); }}>最新活动<span>HOT</span></a>

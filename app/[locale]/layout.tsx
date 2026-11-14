@@ -25,12 +25,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: { default: t("title"), template: `%s · ${locale === "en" ? "AXCloud" : "安信云"}` },
     description: t("description"),
-    icons: { icon: "/favicon.svg" },
-    alternates: { languages: { "zh-CN": "/", en: "/en" } },
+    icons: { icon: "/anxinyun/favicon.svg" },
+    alternates: { languages: { "zh-CN": "/zh", en: "/en" } },
   };
 }
 
-export const viewport: Viewport = { themeColor: "#0a1a44" };
+export const viewport: Viewport = { themeColor: "#FEFEFE" };
 
 export default async function LocaleLayout({ children, params }: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
   const { locale } = await params;
